@@ -8,8 +8,7 @@
 
 namespace App\Http\Controllers;
 
-
-use App\Providers\JSONProvider;
+use Illuminate\Support\Facades\DB;
 
 class HomeCtrl
 {
@@ -20,19 +19,13 @@ class HomeCtrl
             array("codigo"=> 3, "descricao"=>"Playstation 4", "marca"=> "Sony", "categoria"=> "Eletrônicos"),
             array("codigo"=> 4, "descricao"=>"Rasteirinha", "marca"=> "Melissa", "categoria"=> "Vestuário"),
         ];
-          foreach ($produtos as $produto) {
-            echo $produto-> codigo;
-          };
-        //return view('/home', compact('produtos'));
+        return view('/home', compact('produtos'));
     }
 
     public function novoProduto_POST() {
-        /*return response('responseJSON', 200)
-            ->header('Content-Type', 'text/plain')
-            ->json(['message' => 'Erro veio']);
-        ($data = array(), $status = 200, $headers = array(), $options = 0)
-        $headerContent = header('Content-Type', 'text/plain');
-        JSONProvider::json($responseBody, 200, $headerContent);*/
-        return '12323';
+        return response()->json(array(
+            'success' => true,
+            'data'   => array("codigo"=> 12)
+        ));
     }
 }

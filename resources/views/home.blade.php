@@ -5,6 +5,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="csrf-token" content="{{ csrf_token() }}" />
 		<link rel="shortcut icon" href="/download.png" type="image/x-icon"/>
 		<link rel="stylesheet" type="text/css" href="/css/main.css">
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
@@ -19,17 +20,19 @@
 		<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 		<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
 	</head>
-	<body onload="loadTableData('#tableProdutos');">
+	<body onload="loadTableData('#tableProdutos-');">
 		<div class="row">
 			<div id="root" class="col-12">
 				<div class="card">
 					<div class="card-header">
 						<ul class="list-inline form-row py-0">
-							<li class="list-inline-item">
-								<h3></h3>>Lista de Produtos</h3>
+							<li class="list-inline-item col-11 text-center">
+								<h3>Lista de Produtos</h3>
 							</li>
-							<li class="list-inline-item">
-								<button class="float-right btn">Deslogar</button>
+							<li class="list-inline-item float-right">
+								<button class="btn">
+								Deslogar  <i class="fas fa-sign-out-alt"></i>
+								</button>
 							</li>
 						</ul>
 					</div>
@@ -57,12 +60,12 @@
 							<tbody>
 								@foreach($produtos as $produto)
 								<tr>
-									<td>{{ $produto->codigo  }}</td>
-									<td>{{ $produto->descricao  }}</td>
-									<td>{{ $produto->marca  }}</td>
-									<td>{{ $produto->categoria  }}</td>
+									<td>{{ $produto["codigo"]  }}</td>
+									<td>{{ $produto["descricao"] }}</td>
+									<td>{{ $produto["marca"] }}</td>
+									<td>{{ $produto["categoria"] }}</td>
 								</tr>
-                                @endforeach
+								@endforeach
 							</tbody>
 						</table>
 					</div>
