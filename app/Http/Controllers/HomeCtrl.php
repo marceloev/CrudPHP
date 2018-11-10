@@ -29,9 +29,10 @@ class HomeCtrl
     public function novoProduto_POST() {
         /*return response('responseJSON', 200)
             ->header('Content-Type', 'text/plain')
-            ->json(['message' => 'Erro veio']);*/
-        //($data = array(), $status = 200, $headers = array(), $options = 0)
+            ->json(['message' => 'Erro veio']);
+        ($data = array(), $status = 200, $headers = array(), $options = 0)
         $headerContent = header('Content-Type', 'text/plain');
-        JSONProvider::json($responseBody, 200, $headerContent);
+        JSONProvider::json($responseBody, 200, $headerContent);*/
+        return '12323';
     }
 }
